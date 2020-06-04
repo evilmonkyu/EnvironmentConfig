@@ -1,0 +1,28 @@
+[
+   {
+      "name": "SampleKey",
+      "test": "SampleValue-test",
+      "default": "SampleValue"
+   },
+   {
+      "name": "SampleKey2",
+      "local": "SampleValue2-local",
+      "test": "SampleValue2-test",
+      "default": "SampleValue2"
+   },
+   {
+      "name": "SampleKey3",
+      "default": 3
+   },
+   {
+      "name": "SampleKey4",
+      "test,integration": "SampleValue4-test",
+      "default": "SampleValue4"
+   },
+   {
+      "name": "SampleKey5",
+      "test.local,integration.local": "SampleValue5-local",
+      "test,integration": "SampleValue5-test",
+      "default": "SampleValue5"
+   }
+]
