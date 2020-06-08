@@ -30,5 +30,15 @@
    {
       "name": "SampleKey6",
       "test,integration.local": "SampleValue6-test"
+   },
+   {
+      "name": "SampleFeature",
+      "test": "true",
+      "integration": "false"
+   },
+   {
+      "name": "SampleKey7",
+      "toggle": "SampleFeature",
+      "test": "SampleValue7-test"
    }
 ]

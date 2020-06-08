@@ -3,6 +3,7 @@
    [parameter(Position=1)][string]$environment
 )
 
+$result = @()
 (Get-Content $filename | ConvertFrom-Json) | ForEach-Object {
    $envProp = $null
    $variable = $_
@@ -17,9 +18,25 @@
          $envProp = $r[0].Name
       }      
    }   
+
+   $calculated = [pscustomobject]@{key = $_.name; value = $null; error = $false; toggle = $false}
    if ($envProp -and -not $error) {
-      Write-Host "$($_.name)=$($_.$envProp)"
+      $calculated.value = [string]$_.$envProp
    } else {
-      Write-Host error $_.name         
+      $calculated.error = $true
+   }
+   if ($_.toggle) {
+      $calculated.toggle = [string]$_.toggle
+    }
+   $result += $calculated
+}
+
+$result | ForEach-Object {
+   $c = $_
+   if ($_.value) {
+      Write-Host "$($_.key)=$($_.value)"
+   } elseif (-not ($_.toggle -and ($result | Where-Object {$_.key -eq $c.toggle}).value -eq "false")) {
+      Write-Host error $_.key
    }
 }
+

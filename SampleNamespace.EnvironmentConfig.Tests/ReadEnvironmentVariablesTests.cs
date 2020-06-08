@@ -29,7 +29,9 @@ namespace SampleNamespace.EnvironmentConfig.Tests
                 "SampleKey3=3\n" +
                 "SampleKey4=SampleValue4-test\n" +
                 "SampleKey5=SampleValue5-test\n" +
-                "SampleKey6=SampleValue6-test\n", result);       
+                "SampleKey6=SampleValue6-test\n" +
+                "SampleFeature=true\n" +
+                "SampleKey7=SampleValue7-test\n", result);       
         }
 
         [TestMethod]
@@ -53,7 +55,8 @@ namespace SampleNamespace.EnvironmentConfig.Tests
                 "SampleKey3=3\n" +
                 "SampleKey4=SampleValue4-test\n" +
                 "error SampleKey5\n" +
-                "error SampleKey6\n", result);
+                "error SampleKey6\n" +
+                "SampleFeature=false\n" , result);
         }
     }
 }
