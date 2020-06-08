@@ -22,7 +22,13 @@
    {
       "name": "SampleKey5",
       "test.local,integration.local": "SampleValue5-local",
+      "integration.local": "SampleValue5-integration.local",
       "test,integration": "SampleValue5-test",
+      "integration": "SampleValue5-integration",
       "default": "SampleValue5"
+   },
+   {
+      "name": "SampleKey6",
+      "test,integration.local": "SampleValue6-test"
    }
 ]

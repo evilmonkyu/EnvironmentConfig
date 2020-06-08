@@ -56,6 +56,13 @@ namespace SampleNamespace.EnvironmentConfig.Tests
             Assert.AreEqual("SampleValue5-local", config["SampleKey5"]);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof (InvalidOperationException))]
+        public void ThrowsErrorIfDuplicateEnvironment()
+        {
+            BuildConfig("sampleConfig.json", "integration");         
+        }
+
         private IConfiguration BuildConfig(string file, string environment = null)
         {
             return new ConfigurationBuilder()
